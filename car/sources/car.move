@@ -1,10 +1,4 @@
 module car::car {
-
-    //use sui::object::{Self, UID};
-    //use sui::tx_context::{Self, TxContext};
-    //use sui::transfer;
-
-
     public struct Car has key {
         id: UID,
         speed: u8,
@@ -34,4 +28,17 @@ module car::car {
         (self.speed, self.acceleration, self.handling)
     }
 
+    public fun update_speed(self:&mut Car, amount:u8){
+        self.speed = self.speed + amount;
+    }
+
+    public fun update_acceleration(self:&mut Car, amount:u8){
+        self.acceleration = self.acceleration + amount;
+    }
+
+    public fun update_handling(self:&mut Car, amount:u8){
+        self.handling = self.handling + amount;
+    }
+
 }
+    
